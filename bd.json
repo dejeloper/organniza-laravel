@@ -1,0 +1,428 @@
+[
+    {
+        "ordinal_position": 1,
+        "column_name": "id",
+        "data_type": "integer",
+        "table_name": "Category"
+    },
+    {
+        "ordinal_position": 2,
+        "column_name": "name",
+        "data_type": "text",
+        "table_name": "Category"
+    },
+    {
+        "ordinal_position": 3,
+        "column_name": "icon",
+        "data_type": "text",
+        "table_name": "Category"
+    },
+    {
+        "ordinal_position": 4,
+        "column_name": "color",
+        "data_type": "text",
+        "table_name": "Category"
+    },
+    {
+        "ordinal_position": 5,
+        "column_name": "enabled",
+        "data_type": "boolean",
+        "table_name": "Category"
+    },
+    {
+        "ordinal_position": 6,
+        "column_name": "createdAt",
+        "data_type": "timestamp without time zone",
+        "table_name": "Category"
+    },
+    {
+        "ordinal_position": 7,
+        "column_name": "updatedAt",
+        "data_type": "timestamp without time zone",
+        "table_name": "Category"
+    },
+    {
+        "ordinal_position": 1,
+        "column_name": "id",
+        "data_type": "integer",
+        "table_name": "ChecklistDetail"
+    },
+    {
+        "ordinal_position": 2,
+        "column_name": "checklistHeaderId",
+        "data_type": "integer",
+        "table_name": "ChecklistDetail"
+    },
+    {
+        "ordinal_position": 3,
+        "column_name": "productId",
+        "data_type": "integer",
+        "table_name": "ChecklistDetail"
+    },
+    {
+        "ordinal_position": 4,
+        "column_name": "pantryAmountProduct",
+        "data_type": "integer",
+        "table_name": "ChecklistDetail"
+    },
+    {
+        "ordinal_position": 5,
+        "column_name": "pantryUnitProduct",
+        "data_type": "integer",
+        "table_name": "ChecklistDetail"
+    },
+    {
+        "ordinal_position": 6,
+        "column_name": "requiredAmountProduct",
+        "data_type": "integer",
+        "table_name": "ChecklistDetail"
+    },
+    {
+        "ordinal_position": 7,
+        "column_name": "requiredUnitProduct",
+        "data_type": "integer",
+        "table_name": "ChecklistDetail"
+    },
+    {
+        "ordinal_position": 8,
+        "column_name": "enabled",
+        "data_type": "boolean",
+        "table_name": "ChecklistDetail"
+    },
+    {
+        "ordinal_position": 9,
+        "column_name": "createdAt",
+        "data_type": "timestamp without time zone",
+        "table_name": "ChecklistDetail"
+    },
+    {
+        "ordinal_position": 10,
+        "column_name": "updatedAt",
+        "data_type": "timestamp without time zone",
+        "table_name": "ChecklistDetail"
+    },
+    {
+        "ordinal_position": 1,
+        "column_name": "id",
+        "data_type": "integer",
+        "table_name": "ChecklistHeader"
+    },
+    {
+        "ordinal_position": 2,
+        "column_name": "year",
+        "data_type": "integer",
+        "table_name": "ChecklistHeader"
+    },
+    {
+        "ordinal_position": 3,
+        "column_name": "month",
+        "data_type": "integer",
+        "table_name": "ChecklistHeader"
+    },
+    {
+        "ordinal_position": 4,
+        "column_name": "enabled",
+        "data_type": "boolean",
+        "table_name": "ChecklistHeader"
+    },
+    {
+        "ordinal_position": 5,
+        "column_name": "createdAt",
+        "data_type": "timestamp without time zone",
+        "table_name": "ChecklistHeader"
+    },
+    {
+        "ordinal_position": 6,
+        "column_name": "updatedAt",
+        "data_type": "timestamp without time zone",
+        "table_name": "ChecklistHeader"
+    },
+    {
+        "ordinal_position": 1,
+        "column_name": "id",
+        "data_type": "integer",
+        "table_name": "Place"
+    },
+    {
+        "ordinal_position": 2,
+        "column_name": "name",
+        "data_type": "text",
+        "table_name": "Place"
+    },
+    {
+        "ordinal_position": 3,
+        "column_name": "shortName",
+        "data_type": "text",
+        "table_name": "Place"
+    },
+    {
+        "ordinal_position": 4,
+        "column_name": "color",
+        "data_type": "text",
+        "table_name": "Place"
+    },
+    {
+        "ordinal_position": 5,
+        "column_name": "enabled",
+        "data_type": "boolean",
+        "table_name": "Place"
+    },
+    {
+        "ordinal_position": 6,
+        "column_name": "createdAt",
+        "data_type": "timestamp without time zone",
+        "table_name": "Place"
+    },
+    {
+        "ordinal_position": 7,
+        "column_name": "updatedAt",
+        "data_type": "timestamp without time zone",
+        "table_name": "Place"
+    },
+    {
+        "ordinal_position": 1,
+        "column_name": "id",
+        "data_type": "integer",
+        "table_name": "Product"
+    },
+    {
+        "ordinal_position": 2,
+        "column_name": "name",
+        "data_type": "text",
+        "table_name": "Product"
+    },
+    {
+        "ordinal_position": 3,
+        "column_name": "description",
+        "data_type": "text",
+        "table_name": "Product"
+    },
+    {
+        "ordinal_position": 4,
+        "column_name": "unitId",
+        "data_type": "integer",
+        "table_name": "Product"
+    },
+    {
+        "ordinal_position": 5,
+        "column_name": "price",
+        "data_type": "double precision",
+        "table_name": "Product"
+    },
+    {
+        "ordinal_position": 6,
+        "column_name": "categoryId",
+        "data_type": "integer",
+        "table_name": "Product"
+    },
+    {
+        "ordinal_position": 7,
+        "column_name": "placeId",
+        "data_type": "integer",
+        "table_name": "Product"
+    },
+    {
+        "ordinal_position": 8,
+        "column_name": "statusId",
+        "data_type": "integer",
+        "table_name": "Product"
+    },
+    {
+        "ordinal_position": 9,
+        "column_name": "observation",
+        "data_type": "text",
+        "table_name": "Product"
+    },
+    {
+        "ordinal_position": 10,
+        "column_name": "image",
+        "data_type": "text",
+        "table_name": "Product"
+    },
+    {
+        "ordinal_position": 11,
+        "column_name": "enabled",
+        "data_type": "boolean",
+        "table_name": "Product"
+    },
+    {
+        "ordinal_position": 12,
+        "column_name": "createdAt",
+        "data_type": "timestamp without time zone",
+        "table_name": "Product"
+    },
+    {
+        "ordinal_position": 13,
+        "column_name": "updatedAt",
+        "data_type": "timestamp without time zone",
+        "table_name": "Product"
+    },
+    {
+        "ordinal_position": 1,
+        "column_name": "id",
+        "data_type": "integer",
+        "table_name": "ProductStatus"
+    },
+    {
+        "ordinal_position": 2,
+        "column_name": "name",
+        "data_type": "text",
+        "table_name": "ProductStatus"
+    },
+    {
+        "ordinal_position": 3,
+        "column_name": "enabled",
+        "data_type": "boolean",
+        "table_name": "ProductStatus"
+    },
+    {
+        "ordinal_position": 4,
+        "column_name": "createdAt",
+        "data_type": "timestamp without time zone",
+        "table_name": "ProductStatus"
+    },
+    {
+        "ordinal_position": 5,
+        "column_name": "updatedAt",
+        "data_type": "timestamp without time zone",
+        "table_name": "ProductStatus"
+    },
+    {
+        "ordinal_position": 1,
+        "column_name": "id",
+        "data_type": "integer",
+        "table_name": "PurchasesHistoryDetail"
+    },
+    {
+        "ordinal_position": 2,
+        "column_name": "purchasesHistoryHeaderId",
+        "data_type": "integer",
+        "table_name": "PurchasesHistoryDetail"
+    },
+    {
+        "ordinal_position": 3,
+        "column_name": "productId",
+        "data_type": "integer",
+        "table_name": "PurchasesHistoryDetail"
+    },
+    {
+        "ordinal_position": 4,
+        "column_name": "amountProduct",
+        "data_type": "integer",
+        "table_name": "PurchasesHistoryDetail"
+    },
+    {
+        "ordinal_position": 5,
+        "column_name": "unitProduct",
+        "data_type": "integer",
+        "table_name": "PurchasesHistoryDetail"
+    },
+    {
+        "ordinal_position": 6,
+        "column_name": "subTotalProduct",
+        "data_type": "double precision",
+        "table_name": "PurchasesHistoryDetail"
+    },
+    {
+        "ordinal_position": 7,
+        "column_name": "enabled",
+        "data_type": "boolean",
+        "table_name": "PurchasesHistoryDetail"
+    },
+    {
+        "ordinal_position": 8,
+        "column_name": "createdAt",
+        "data_type": "timestamp without time zone",
+        "table_name": "PurchasesHistoryDetail"
+    },
+    {
+        "ordinal_position": 9,
+        "column_name": "updatedAt",
+        "data_type": "timestamp without time zone",
+        "table_name": "PurchasesHistoryDetail"
+    },
+    {
+        "ordinal_position": 1,
+        "column_name": "id",
+        "data_type": "integer",
+        "table_name": "PurchasesHistoryHeader"
+    },
+    {
+        "ordinal_position": 2,
+        "column_name": "year",
+        "data_type": "integer",
+        "table_name": "PurchasesHistoryHeader"
+    },
+    {
+        "ordinal_position": 3,
+        "column_name": "month",
+        "data_type": "integer",
+        "table_name": "PurchasesHistoryHeader"
+    },
+    {
+        "ordinal_position": 4,
+        "column_name": "amountPurchase",
+        "data_type": "integer",
+        "table_name": "PurchasesHistoryHeader"
+    },
+    {
+        "ordinal_position": 5,
+        "column_name": "totalPurchase",
+        "data_type": "double precision",
+        "table_name": "PurchasesHistoryHeader"
+    },
+    {
+        "ordinal_position": 6,
+        "column_name": "enabled",
+        "data_type": "boolean",
+        "table_name": "PurchasesHistoryHeader"
+    },
+    {
+        "ordinal_position": 7,
+        "column_name": "createdAt",
+        "data_type": "timestamp without time zone",
+        "table_name": "PurchasesHistoryHeader"
+    },
+    {
+        "ordinal_position": 8,
+        "column_name": "updatedAt",
+        "data_type": "timestamp without time zone",
+        "table_name": "PurchasesHistoryHeader"
+    },
+    {
+        "ordinal_position": 1,
+        "column_name": "id",
+        "data_type": "integer",
+        "table_name": "Unit"
+    },
+    {
+        "ordinal_position": 2,
+        "column_name": "name",
+        "data_type": "text",
+        "table_name": "Unit"
+    },
+    {
+        "ordinal_position": 3,
+        "column_name": "nemonico",
+        "data_type": "text",
+        "table_name": "Unit"
+    },
+    {
+        "ordinal_position": 4,
+        "column_name": "enabled",
+        "data_type": "boolean",
+        "table_name": "Unit"
+    },
+    {
+        "ordinal_position": 5,
+        "column_name": "createdAt",
+        "data_type": "timestamp without time zone",
+        "table_name": "Unit"
+    },
+    {
+        "ordinal_position": 6,
+        "column_name": "updatedAt",
+        "data_type": "timestamp without time zone",
+        "table_name": "Unit"
+    }
+]
