@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateCategoryRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class UpdateCategoryRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,10 +23,16 @@ class UpdateCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255|unique:categories',
-            'icon' => 'nullable|string|max:255',
-            'color' => 'nullable|string|max:7',
-            'enabled' => 'boolean',
+            'name' => [
+                'sometimes',
+                'string',
+                'max:255',
+                Rule::unique('categories', 'name')->ignore($this->category),
+            ],
+            'icon' => 'sometimes|string|max:255',
+            'bg_color' => 'sometimes|string|regex:/^#([a-fA-F0-9]{6})$/',
+            'text_color' => 'sometimes|string|regex:/^#([a-fA-F0-9]{6})$/',
+            'enabled' => 'sometimes|boolean',
         ];
     }
 }
