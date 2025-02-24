@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdatePlaceRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class UpdatePlaceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,16 @@ class UpdatePlaceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'sometimes|string|max:255',
+            'name' => [
+                'sometimes',
+                'string',
+                'max:255',
+                Rule::unique('places', 'name')->ignore($this->place),
+            ],
+            'short_name' => 'sometimes|string|max:100',
+            'bg_color' => 'sometimes|string|regex:/^#([a-fA-F0-9]{6})$/',
+            'text_color' => 'sometimes|string|regex:/^#([a-fA-F0-9]{6})$/',
+            'enabled' => 'sometimes|boolean',
         ];
     }
 }

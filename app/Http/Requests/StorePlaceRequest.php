@@ -11,7 +11,7 @@ class StorePlaceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class StorePlaceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'sometimes|string|max:255',
+            'name' => 'required|string|max:255|unique:places,name',
+            'short_name' => 'required|string|max:100',
+            'bg_color' => 'required|string|regex:/^#([a-fA-F0-9]{6})$/',
+            'text_color' => 'required|string|regex:/^#([a-fA-F0-9]{6})$/',
+            'enabled' => 'boolean',
         ];
     }
 }
