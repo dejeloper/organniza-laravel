@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ChecklistHeader extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'year',
         'month',
@@ -24,7 +27,7 @@ class ChecklistHeader extends Model
     public function modifications()
     {
         return $this->hasMany(ModificationLog::class, 'record_id')
-            ->where('table_name', 'categories')
+            ->where('table_name', 'checklist_headers')
             ->orderBy('created_at', 'desc');
     }
 }
