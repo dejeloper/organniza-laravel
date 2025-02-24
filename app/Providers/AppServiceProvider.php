@@ -40,6 +40,5 @@ class AppServiceProvider extends ServiceProvider
         PurchasesHistoryDetail::observe(GenericObserver::class);
         ChecklistHeader::observe(GenericObserver::class);
         ChecklistDetail::observe(GenericObserver::class);
-        NeededProduct::observe(GenericObserver::class);
     }
 }
