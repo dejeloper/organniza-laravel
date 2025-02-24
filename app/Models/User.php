@@ -32,7 +32,7 @@ class User extends Authenticatable
 
     public function modifications()
     {
-        $this->hasMany(ModificationLog::class, 'record_id')
+        return $this->hasMany(ModificationLog::class, 'record_id')
             ->where('table_name', 'users')
             ->orderBy('created_at', 'desc');
     }
