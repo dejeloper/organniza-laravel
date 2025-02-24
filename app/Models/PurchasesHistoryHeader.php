@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PurchasesHistoryHeader extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'year',
         'month',
@@ -27,7 +30,7 @@ class PurchasesHistoryHeader extends Model
     public function modifications()
     {
         return $this->hasMany(ModificationLog::class, 'record_id')
-            ->where('table_name', 'categories')
+            ->where('table_name', 'purchases_history_headers')
             ->orderBy('created_at', 'desc');
     }
 }
