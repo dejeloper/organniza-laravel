@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUnitRequest;
+use App\Http\Requests\UpdateUnitRequest;
 use App\Http\Resources\UnitResource;
 use App\Models\Unit;
-use Illuminate\Http\Request;
 
 class UnitController extends Controller
 {
@@ -63,7 +63,7 @@ class UnitController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Unit $unit)
+    public function update(UpdateUnitRequest $request, Unit $unit)
     {
         $unit->update($request->validated());
         return new UnitResource($unit);

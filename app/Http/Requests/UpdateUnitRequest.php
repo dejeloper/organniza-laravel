@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateUnitRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class UpdateUnitRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,14 @@ class UpdateUnitRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'sometimes|string|max:255',
+            'name' => [
+                'sometimes',
+                'string',
+                'max:255',
+                Rule::unique('units', 'name')->ignore($this->unit),
+            ],
+            'nemonico' => 'sometimes|string|max:50',
+            'enabled' => 'sometimes|boolean',
         ];
     }
 }
