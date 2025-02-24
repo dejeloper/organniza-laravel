@@ -3,12 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, SoftDeletes;
 
     protected $fillable = [
         'name',
@@ -31,7 +32,8 @@ class User extends Authenticatable
 
     public function modifications()
     {
-        return $this->hasMany(ModificationLog::class, 'user_id')
+        $this->hasMany(ModificationLog::class, 'record_id')
+            ->where('table_name', 'users')
             ->orderBy('created_at', 'desc');
     }
 }
