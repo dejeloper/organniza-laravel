@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ProductStatus extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'name',
         'enabled',
@@ -23,7 +26,7 @@ class ProductStatus extends Model
     public function modifications()
     {
         return $this->hasMany(ModificationLog::class, 'record_id')
-            ->where('table_name', 'categories')
+            ->where('table_name', 'product_statuses')
             ->orderBy('created_at', 'desc');
     }
 }
