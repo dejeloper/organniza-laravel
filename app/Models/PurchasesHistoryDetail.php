@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class PurchasesHistoryDetail extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'purchases_history_header_id',
         'product_id',
@@ -38,7 +41,7 @@ class PurchasesHistoryDetail extends Model
     public function modifications()
     {
         return $this->hasMany(ModificationLog::class, 'record_id')
-            ->where('table_name', 'categories')
+            ->where('table_name', 'purchases_history_details')
             ->orderBy('created_at', 'desc');
     }
 }
