@@ -9,6 +9,7 @@ use App\Http\Controllers\ProductStatusController;
 use App\Http\Controllers\PurchasesHistoryDetailController;
 use App\Http\Controllers\PurchasesHistoryHeaderController;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::apiResource('products', ProductController::class);
@@ -80,3 +81,10 @@ Route::get('purchasesHistoryDetailsOnlyTrashed', [PurchasesHistoryDetailControll
 Route::get('purchasesHistoryDetails/{id}/trashed', [PurchasesHistoryDetailController::class, 'showTrashed']);
 Route::patch('purchasesHistoryDetails/{id}/restore', [PurchasesHistoryDetailController::class, 'restore']);
 Route::delete('purchasesHistoryDetails/{id}/forceDelete', [PurchasesHistoryDetailController::class, 'forceDelete']);
+
+Route::apiResource('users', UserController::class);
+Route::get('usersWithTrashed', [UserController::class, 'indexWithTrashed']);
+Route::get('usersOnlyTrashed', [UserController::class, 'indexOnlyTrashed']);
+Route::get('users/{id}/trashed', [UserController::class, 'showTrashed']);
+Route::patch('users/{id}/restore', [UserController::class, 'restore']);
+Route::delete('users/{id}/forceDelete', [UserController::class, 'forceDelete']);
