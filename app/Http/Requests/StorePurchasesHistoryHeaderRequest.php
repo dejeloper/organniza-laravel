@@ -11,7 +11,7 @@ class StorePurchasesHistoryHeaderRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class StorePurchasesHistoryHeaderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'sometimes|string|max:255',
+            'year' => 'required|integer|min:2000|max:' . date('Y'),
+            'month' => 'required|integer|min:1|max:12',
+            'amount_purchase' => 'required|numeric|min:1',
+            'total_purchase' => 'required|numeric|min:0',
+            'enabled' => 'boolean',
         ];
     }
 }

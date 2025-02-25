@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             ProductSeeder::class,
             ChecklistHeaderSeeder::class,
             ChecklistDetailSeeder::class,
+            PurchasesHistoryHeaderSeeder::class,
         ]);
     }
 }
