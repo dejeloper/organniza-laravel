@@ -12,7 +12,7 @@ class PurchasesHistoryDetailSeeder extends Seeder
         $data = [
             [
                 'purchases_history_header_id' => 1,
-                'product_id' => 101,
+                'product_id' => 1,
                 'amount_product' => 10,
                 'unit_product' => 1,
                 'sub_total_product' => 250.50,
@@ -20,7 +20,7 @@ class PurchasesHistoryDetailSeeder extends Seeder
             ],
             [
                 'purchases_history_header_id' => 1,
-                'product_id' => 102,
+                'product_id' => 2,
                 'amount_product' => 8,
                 'unit_product' => 1,
                 'sub_total_product' => 180.75,
@@ -28,7 +28,7 @@ class PurchasesHistoryDetailSeeder extends Seeder
             ],
             [
                 'purchases_history_header_id' => 2,
-                'product_id' => 103,
+                'product_id' => 3,
                 'amount_product' => 5,
                 'unit_product' => 2,
                 'sub_total_product' => 300.00,
@@ -36,7 +36,7 @@ class PurchasesHistoryDetailSeeder extends Seeder
             ],
             [
                 'purchases_history_header_id' => 2,
-                'product_id' => 104,
+                'product_id' => 4,
                 'amount_product' => 6,
                 'unit_product' => 1,
                 'sub_total_product' => 120.50,
@@ -44,7 +44,7 @@ class PurchasesHistoryDetailSeeder extends Seeder
             ],
             [
                 'purchases_history_header_id' => 3,
-                'product_id' => 105,
+                'product_id' => 1,
                 'amount_product' => 7,
                 'unit_product' => 1,
                 'sub_total_product' => 140.90,
@@ -52,7 +52,7 @@ class PurchasesHistoryDetailSeeder extends Seeder
             ],
             [
                 'purchases_history_header_id' => 3,
-                'product_id' => 106,
+                'product_id' => 2,
                 'amount_product' => 12,
                 'unit_product' => 2,
                 'sub_total_product' => 480.00,
@@ -60,7 +60,7 @@ class PurchasesHistoryDetailSeeder extends Seeder
             ],
             [
                 'purchases_history_header_id' => 4,
-                'product_id' => 107,
+                'product_id' => 3,
                 'amount_product' => 4,
                 'unit_product' => 3,
                 'sub_total_product' => 200.00,
@@ -68,7 +68,7 @@ class PurchasesHistoryDetailSeeder extends Seeder
             ],
             [
                 'purchases_history_header_id' => 4,
-                'product_id' => 108,
+                'product_id' => 4,
                 'amount_product' => 15,
                 'unit_product' => 4,
                 'sub_total_product' => 75.00,
@@ -76,7 +76,7 @@ class PurchasesHistoryDetailSeeder extends Seeder
             ],
             [
                 'purchases_history_header_id' => 5,
-                'product_id' => 109,
+                'product_id' => 1,
                 'amount_product' => 30,
                 'unit_product' => 5,
                 'sub_total_product' => 360.00,
@@ -84,7 +84,7 @@ class PurchasesHistoryDetailSeeder extends Seeder
             ],
             [
                 'purchases_history_header_id' => 5,
-                'product_id' => 110,
+                'product_id' => 2,
                 'amount_product' => 5,
                 'unit_product' => 1,
                 'sub_total_product' => 750.00,
