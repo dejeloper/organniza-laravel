@@ -11,7 +11,7 @@ class UpdateChecklistHeaderRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class UpdateChecklistHeaderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'sometimes|string|max:255',
+            'year' => 'sometimes|integer|min:1950|max:' . date('Y'),
+            'month' => 'sometimes|integer|min:1|max:12',
+            'enabled' => 'sometimes|boolean',
         ];
     }
 }
