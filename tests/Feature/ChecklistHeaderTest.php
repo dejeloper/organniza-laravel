@@ -13,7 +13,7 @@ class ChecklistHeaderTest extends TestCase
     public function test_crear_registro_correctamente()
     {
 
-        $response = $this->postJson('/api/checklistHeaders',   [
+        $response = $this->postJson('/api/checklistHeaders', [
             'year' => 2025,
             'month' => 4,
             'enabled' => true,
