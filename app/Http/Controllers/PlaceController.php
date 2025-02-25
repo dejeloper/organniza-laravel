@@ -6,7 +6,6 @@ use App\Http\Requests\StorePlaceRequest;
 use App\Http\Requests\UpdatePlaceRequest;
 use App\Http\Resources\PlaceResource;
 use App\Models\Place;
-use Illuminate\Http\Request;
 
 class PlaceController extends Controller
 {
