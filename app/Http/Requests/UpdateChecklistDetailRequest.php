@@ -11,7 +11,7 @@ class UpdateChecklistDetailRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,13 @@ class UpdateChecklistDetailRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'sometimes|string|max:255',
+            'checklist_header_id' => 'sometimes|exists:checklist_headers,id',
+            'product_id' => 'sometimes|exists:products,id',
+            'pantry_amount_product' => 'sometimes|numeric|min:0',
+            'pantry_unit_product' => 'sometimes|exists:units,id',
+            'required_amount_product' => 'sometimes|numeric|min:0',
+            'required_unit_product' => 'sometimes|exists:units,id',
+            'enabled' => 'sometimes|boolean',
         ];
     }
 }

@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ProductSeeder::class,
             ChecklistHeaderSeeder::class,
+            ChecklistDetailSeeder::class,
         ]);
     }
 }

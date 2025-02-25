@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreChecklistDetailRequest;
+use App\Http\Requests\UpdateChecklistDetailRequest;
 use App\Http\Resources\ChecklistDetailResource;
 use App\Models\ChecklistDetail;
-use Illuminate\Http\Request;
 
 class ChecklistDetailController extends Controller
 {
@@ -35,7 +36,7 @@ class ChecklistDetailController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreChecklistDetailRequest $request)
     {
         $checklistDetail = ChecklistDetail::create($request->validated());
         return new ChecklistDetailResource($checklistDetail);
@@ -62,7 +63,7 @@ class ChecklistDetailController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, ChecklistDetail $checklistDetail)
+    public function update(UpdateChecklistDetailRequest $request, ChecklistDetail $checklistDetail)
     {
         $checklistDetail->update($request->validated());
         return new ChecklistDetailResource($checklistDetail);
