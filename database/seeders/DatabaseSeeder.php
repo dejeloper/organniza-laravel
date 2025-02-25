@@ -12,13 +12,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::firstOrCreate(
-            ['email' => 'test@example.com'],
-            [
-                'name' => 'Test User',
-                'email' => 'test@example.com',
-                'password' => bcrypt('password123'),
-            ]
-        );
+        $this->call([
+            CategorySeeder::class,
+            PlaceSeeder::class,
+            ProductStatusSeeder::class,
+            UnitSeeder::class,
+            UserSeeder::class,
+        ]);
     }
 }
