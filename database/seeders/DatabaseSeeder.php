@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             ChecklistHeaderSeeder::class,
             ChecklistDetailSeeder::class,
             PurchasesHistoryHeaderSeeder::class,
+            PurchasesHistoryDetailSeeder::class,
         ]);
     }
 }

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePurchasesHistoryDetailRequest;
+use App\Http\Requests\UpdatePurchasesHistoryDetailRequest;
 use App\Http\Resources\PurchasesHistoryDetailResource;
 use App\Models\PurchasesHistoryDetail;
-use Illuminate\Http\Request;
 
 class PurchasesHistoryDetailController extends Controller
 {
@@ -35,7 +36,7 @@ class PurchasesHistoryDetailController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePurchasesHistoryDetailRequest $request)
     {
         $purchasesHistoryDetail = PurchasesHistoryDetail::create($request->validated());
         return new PurchasesHistoryDetailResource($purchasesHistoryDetail);
@@ -62,7 +63,7 @@ class PurchasesHistoryDetailController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PurchasesHistoryDetail $purchasesHistoryDetail)
+    public function update(UpdatePurchasesHistoryDetailRequest $request, PurchasesHistoryDetail $purchasesHistoryDetail)
     {
         $purchasesHistoryDetail->update($request->validated());
         return new PurchasesHistoryDetailResource($purchasesHistoryDetail);
