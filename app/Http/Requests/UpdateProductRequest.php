@@ -23,8 +23,15 @@ class UpdateProductRequest extends FormRequest
     {
         return [
             'name' => 'sometimes|string|max:255',
+            'description' => 'sometimes|nullable|string',
+            'unit_id' => 'sometimes|exists:units,id',
             'price' => 'sometimes|numeric|min:0',
-            'stock' => 'sometimes|integer|min:0',
+            'category_id' => 'sometimes|exists:categories,id',
+            'place_id' => 'sometimes|exists:places,id',
+            'status_id' => 'sometimes|nullable|exists:product_statuses,id',
+            'observation' => 'sometimes|nullable|string',
+            'image' => 'sometimes|nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'enabled' => 'sometimes|boolean',
         ];
     }
 }
