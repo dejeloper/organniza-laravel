@@ -10,7 +10,6 @@ class CategoryTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
     public function test_crear_categoria_correctamente()
     {
         $response = $this->postJson('/api/categories', [
@@ -25,7 +24,6 @@ class CategoryTest extends TestCase
             ->assertJsonPath('data.name', 'Categoría 1');
     }
 
-    /** @test */
     public function test_crear_categoria_con_datos_invalidos()
     {
         $response = $this->postJson('/api/categories', [
@@ -40,7 +38,6 @@ class CategoryTest extends TestCase
             ->assertJsonValidationErrors('name');
     }
 
-    /** @test */
     public function test_obtener_lista_de_categorias()
     {
         Category::factory()->count(3)->create();
@@ -51,7 +48,6 @@ class CategoryTest extends TestCase
             ->assertJsonCount(3, 'data');
     }
 
-    /** @test */
     public function test_actualizar_categoria()
     {
         $category = Category::factory()->create();
@@ -68,7 +64,6 @@ class CategoryTest extends TestCase
             ->assertJsonPath('data.name', 'Categoría Modificada');
     }
 
-    /** @test */
     public function test_actualizar_categoria_fallido_por_validacion()
     {
         $category = Category::factory()->create();
@@ -85,7 +80,6 @@ class CategoryTest extends TestCase
             ->assertJsonValidationErrors('name');
     }
 
-    /** @test */
     public function test_soft_delete_categoria()
     {
         $category = Category::factory()->create();
@@ -98,7 +92,6 @@ class CategoryTest extends TestCase
         $this->assertSoftDeleted('categories', ['id' => $category->id]);
     }
 
-    /** @test */
     public function test_obtener_categorias_eliminadas()
     {
         $category = Category::factory()->create();
@@ -110,7 +103,6 @@ class CategoryTest extends TestCase
             ->assertJsonCount(1, 'data');
     }
 
-    /** @test */
     public function test_restaurar_categoria()
     {
         $category = Category::factory()->create();
@@ -124,7 +116,6 @@ class CategoryTest extends TestCase
         $this->assertDatabaseHas('categories', ['id' => $category->id, 'deleted_at' => null]);
     }
 
-    /** @test */
     public function test_eliminar_categoria_permanentemente()
     {
         $category = Category::factory()->create();
