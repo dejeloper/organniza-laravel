@@ -47,13 +47,6 @@ Route::get('checklistHeaders/{id}/trashed', [ChecklistHeaderController::class, '
 Route::patch('checklistHeaders/{id}/restore', [ChecklistHeaderController::class, 'restore']);
 Route::delete('checklistHeaders/{id}/forceDelete', [ChecklistHeaderController::class, 'forceDelete']);
 
-Route::apiResource('products_statuses', ProductStatusController::class);
-Route::get('products_statusesWithTrashed', [ProductStatusController::class, 'indexWithTrashed']);
-Route::get('products_statusesOnlyTrashed', [ProductStatusController::class, 'indexOnlyTrashed']);
-Route::get('products_statuses/{id}/trashed', [ProductStatusController::class, 'showTrashed']);
-Route::patch('products_statuses/{id}/restore', [ProductStatusController::class, 'restore']);
-Route::delete('products_statuses/{id}/forceDelete', [ProductStatusController::class, 'forceDelete']);
-
 Route::apiResource('productStatuses', ProductStatusController::class);
 Route::get('productStatusesWithTrashed', [ProductStatusController::class, 'indexWithTrashed']);
 Route::get('productStatusesOnlyTrashed', [ProductStatusController::class, 'indexOnlyTrashed']);

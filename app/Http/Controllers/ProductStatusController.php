@@ -10,12 +10,13 @@ use App\Models\ProductStatus;
 class ProductStatusController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource only if the resource is not soft deleted.
      */
     public function index()
     {
         return ProductStatusResource::collection(ProductStatus::all());
     }
+
     /**
      * Display a listing of the resource including soft deleted.
      */
@@ -37,7 +38,7 @@ class ProductStatusController extends Controller
      */
     public function store(StoreProductStatusRequest $request)
     {
-        $productStatus =  ProductStatusResource::create($request->validated());
+        $productStatus = ProductStatus::create($request->validated());
         return new ProductStatusResource($productStatus);
     }
 
@@ -73,7 +74,7 @@ class ProductStatusController extends Controller
      */
     public function destroy(string $id)
     {
-        $productStatus = ProductStatusResource::withTrashed()->findOrFail($id);
+        $productStatus = ProductStatus::withTrashed()->findOrFail($id);
 
         if ($productStatus->trashed()) {
             // Si ya está eliminado (soft delete), lo eliminamos permanentemente

@@ -11,7 +11,7 @@ class UpdateProductStatusRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class UpdateProductStatusRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'sometimes|string|max:255',
+            'name' => 'sometimes|string|max:255|unique:product_statuses,name,' . $this->route('product_status'),
+            'enabled' => 'sometimes|boolean',
         ];
     }
 }
