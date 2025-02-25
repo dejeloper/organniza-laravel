@@ -35,7 +35,6 @@ class ModificationLog extends Model
             'units' => $this->belongsTo(Unit::class, 'record_id'),
             'purchases_history_headers' => $this->belongsTo(PurchasesHistoryHeader::class, 'record_id'),
             'purchases_history_details' => $this->belongsTo(PurchasesHistoryDetail::class, 'record_id'),
-            'needed_products' => $this->belongsTo(NeededProduct::class, 'record_id'),
             'checklist_headers' => $this->belongsTo(ChecklistHeader::class, 'record_id'),
             'checklist_details' => $this->belongsTo(ChecklistDetail::class, 'record_id'),
             default => null,
