@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('checklist_headers', function (Blueprint $table) {
             $table->id();
-            $table->integer('year')->index();
-            $table->integer('month')->index();
-            $table->boolean('enabled')->default(true);
+            $table->unsignedSmallInteger('year')->index();
+            $table->tinyInteger('month')->unsigned()->index();
+            $table->boolean('enabled')->default(true)->index();
             $table->timestamps();
             $table->softDeletes();
         });

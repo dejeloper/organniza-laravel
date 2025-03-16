@@ -15,12 +15,16 @@ return new class extends Migration
             $table->id();
             $table->foreignId('purchases_history_header_id')->constrained('purchases_history_headers')->onDelete('cascade');
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->integer('amount_product')->default(1);
-            $table->foreignId('unit_product')->constrained('units')->onDelete('cascade');
+
+            $table->unsignedSmallInteger('amount_product')->default(1);
+            $table->foreignId('unit_product_id')->constrained('units')->onDelete('cascade');
             $table->decimal('sub_total_product', 10, 2)->index();
-            $table->boolean('enabled')->default(true);
+
+            $table->boolean('enabled')->default(true)->index();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index(['purchases_history_header_id', 'product_id']);
         });
     }
 

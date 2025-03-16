@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('units', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique()->index();
-            $table->string('nemonico');
-            $table->boolean('enabled')->default(true);
+            $table->string('name', 50)->unique()->index();
+            $table->string('short_name', 15)->index();
+            $table->boolean('enabled')->default(true)->index();
             $table->timestamps();
             $table->softDeletes();
         });

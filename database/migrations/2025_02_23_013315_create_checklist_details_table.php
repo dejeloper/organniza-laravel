@@ -15,13 +15,18 @@ return new class extends Migration
             $table->id();
             $table->foreignId('checklist_header_id')->constrained('checklist_headers')->onDelete('cascade');
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade');
-            $table->integer('pantry_amount_product');
-            $table->foreignId('pantry_unit_product')->constrained('units')->onDelete('cascade');
-            $table->integer('required_amount_product');
-            $table->foreignId('required_unit_product')->constrained('units')->onDelete('cascade');
-            $table->boolean('enabled')->default(true);
+
+            $table->unsignedSmallInteger('pantry_amount_product');
+            $table->foreignId('pantry_unit_id')->constrained('units')->onDelete('cascade');
+
+            $table->unsignedSmallInteger('required_amount_product');
+            $table->foreignId('required_unit_id')->constrained('units')->onDelete('cascade');
+
+            $table->boolean('enabled')->default(true)->index();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index(['checklist_header_id', 'product_id']);
         });
     }
 

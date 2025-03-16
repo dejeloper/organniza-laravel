@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('product_statuses', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique()->index();
-            $table->boolean('enabled')->default(true);
+            $table->string('name', 50)->unique()->index();
+            $table->boolean('enabled')->default(true)->index();
             $table->timestamps();
             $table->softDeletes();
         });
