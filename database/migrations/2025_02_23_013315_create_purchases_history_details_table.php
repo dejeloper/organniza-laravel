@@ -24,7 +24,7 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->index(['purchases_history_header_id', 'product_id']);
+            $table->index(['purchases_history_header_id', 'product_id'], 'purchases_header_product_idx');
         });
     }
 

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedSmallInteger('year')->index();
             $table->tinyInteger('month')->unsigned()->index();
             $table->unsignedInteger('amount_purchase');
-            $table->unsignedDecimal('total_purchase', 10, 2)->index();
+            $table->decimal('total_purchase', 10, 2)->unsigned()->index();
             $table->boolean('enabled')->default(true)->index();
             $table->timestamps();
             $table->softDeletes();
