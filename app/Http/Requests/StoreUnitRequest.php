@@ -23,7 +23,7 @@ class StoreUnitRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255|unique:units,name',
-            'nemonico' => 'required|string|max:50',
+            'short_name' => 'required|string|max:50',
             'enabled' => 'boolean',
         ];
     }

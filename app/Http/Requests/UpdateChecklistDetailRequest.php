@@ -25,9 +25,9 @@ class UpdateChecklistDetailRequest extends FormRequest
             'checklist_header_id' => 'sometimes|exists:checklist_headers,id',
             'product_id' => 'sometimes|exists:products,id',
             'pantry_amount_product' => 'sometimes|numeric|min:0',
-            'pantry_unit_product' => 'sometimes|exists:units,id',
+            'pantry_unit_id' => 'sometimes|exists:units,id',
             'required_amount_product' => 'sometimes|numeric|min:0',
-            'required_unit_product' => 'sometimes|exists:units,id',
+            'required_unit_id' => 'sometimes|exists:units,id',
             'enabled' => 'sometimes|boolean',
         ];
     }

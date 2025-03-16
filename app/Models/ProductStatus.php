@@ -6,9 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ProductStatus extends Model
+use OwenIt\Auditing\Contracts\Auditable;
+use OwenIt\Auditing\Auditable as AuditableTrait;
+
+class ProductStatus extends Model implements Auditable
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, AuditableTrait;
 
     protected $fillable = [
         'name',
@@ -24,10 +27,6 @@ class ProductStatus extends Model
         return $this->hasMany(Product::class);
     }
 
-    public function modifications()
-    {
-        return $this->hasMany(ModificationLog::class, 'record_id')
-            ->where('table_name', 'product_statuses')
-            ->orderBy('created_at', 'desc');
-    }
+    protected $auditExclude = ['created_at', 'updated_at', 'deleted_at'];
+    protected $auditEvents = ['created', 'updated', 'deleted'];
 }

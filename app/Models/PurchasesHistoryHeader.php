@@ -6,9 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class PurchasesHistoryHeader extends Model
+use OwenIt\Auditing\Contracts\Auditable;
+use OwenIt\Auditing\Auditable as AuditableTrait;
+
+class PurchasesHistoryHeader extends Model implements Auditable
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, AuditableTrait;
 
     protected $fillable = [
         'year',
@@ -28,10 +31,6 @@ class PurchasesHistoryHeader extends Model
         return $this->hasMany(PurchasesHistoryDetail::class, 'purchases_history_header_id');
     }
 
-    public function modifications()
-    {
-        return $this->hasMany(ModificationLog::class, 'record_id')
-            ->where('table_name', 'purchases_history_headers')
-            ->orderBy('created_at', 'desc');
-    }
+    protected $auditExclude = ['created_at', 'updated_at', 'deleted_at'];
+    protected $auditEvents = ['created', 'updated', 'deleted'];
 }

@@ -6,9 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class ChecklistDetail extends Model
+use OwenIt\Auditing\Contracts\Auditable;
+use OwenIt\Auditing\Auditable as AuditableTrait;
+
+class ChecklistDetail extends Model implements Auditable
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, AuditableTrait;
 
     protected $fillable = [
         'checklist_header_id',
@@ -44,10 +47,6 @@ class ChecklistDetail extends Model
         return $this->belongsTo(Unit::class, 'required_unit_id');
     }
 
-    public function modifications()
-    {
-        return $this->hasMany(ModificationLog::class, 'record_id')
-            ->where('table_name', 'checklist_details')
-            ->orderBy('created_at', 'desc');
-    }
+    protected $auditExclude = ['created_at', 'updated_at', 'deleted_at'];
+    protected $auditEvents = ['created', 'updated', 'deleted'];
 }

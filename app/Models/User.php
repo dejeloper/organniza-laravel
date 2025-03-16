@@ -7,9 +7,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+use OwenIt\Auditing\Contracts\Auditable;
+use OwenIt\Auditing\Auditable as AuditableTrait;
+
+class User extends Authenticatable implements Auditable
 {
-    use HasFactory, Notifiable, SoftDeletes;
+    use HasFactory, SoftDeletes, AuditableTrait;
 
     protected $fillable = [
         'name',
@@ -30,10 +33,6 @@ class User extends Authenticatable
         ];
     }
 
-    public function modifications()
-    {
-        return $this->hasMany(ModificationLog::class, 'record_id')
-            ->where('table_name', 'users')
-            ->orderBy('created_at', 'desc');
-    }
+    protected $auditExclude = ['created_at', 'updated_at', 'deleted_at'];
+    protected $auditEvents = ['created', 'updated', 'deleted'];
 }

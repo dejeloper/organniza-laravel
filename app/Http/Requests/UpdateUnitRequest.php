@@ -29,7 +29,7 @@ class UpdateUnitRequest extends FormRequest
                 'max:255',
                 Rule::unique('units', 'name')->ignore($this->unit),
             ],
-            'nemonico' => 'sometimes|string|max:50',
+            'short_name' => 'sometimes|string|max:50',
             'enabled' => 'sometimes|boolean',
         ];
     }

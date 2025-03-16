@@ -25,7 +25,7 @@ class StorePurchasesHistoryDetailRequest extends FormRequest
             'purchases_history_header_id' => 'required|exists:purchases_history_headers,id',
             'product_id' => 'required|exists:products,id',
             'amount_product' => 'required|integer|min:1',
-            'unit_product' => 'required|exists:units,id',
+            'unit_product_id' => 'required|exists:units,id',
             'sub_total_product' => 'required|numeric|min:0',
             'enabled' => 'boolean',
         ];

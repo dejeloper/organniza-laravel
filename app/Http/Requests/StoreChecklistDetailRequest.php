@@ -25,9 +25,9 @@ class StoreChecklistDetailRequest extends FormRequest
             'checklist_header_id' => 'required|exists:checklist_headers,id',
             'product_id' => 'required|exists:products,id',
             'pantry_amount_product' => 'required|numeric|min:0',
-            'pantry_unit_product' => 'required|exists:units,id',
+            'pantry_unit_id' => 'required|exists:units,id',
             'required_amount_product' => 'required|numeric|min:0',
-            'required_unit_product' => 'required|exists:units,id',
+            'required_unit_id' => 'required|exists:units,id',
             'enabled' => 'boolean',
         ];
     }
