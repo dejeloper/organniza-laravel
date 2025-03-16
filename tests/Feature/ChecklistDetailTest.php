@@ -19,9 +19,9 @@ class ChecklistDetailTest extends TestCase
             'checklist_header_id' => ChecklistHeader::factory()->create()->id,
             'product_id' => Product::factory()->create()->id,
             'pantry_amount_product' => 10.5,
-            'pantry_unit_product' => Unit::factory()->create()->id,
+            'pantry_unit_id' => Unit::factory()->create()->id,
             'required_amount_product' => 5.2,
-            'required_unit_product' => Unit::factory()->create()->id,
+            'required_unit_id' => Unit::factory()->create()->id,
             'enabled' => true,
         ]);
 

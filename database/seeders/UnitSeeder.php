@@ -16,37 +16,37 @@ class UnitSeeder extends Seeder
         Unit::insert([
             [
                 'name' => 'Kg',
-                'nemonico' => 'kg',
+                'short_name' => 'kg',
                 'enabled' => true,
             ],
             [
                 'name' => 'Lbs',
-                'nemonico' => 'lbs',
+                'short_name' => 'lbs',
                 'enabled' => true,
             ],
             [
                 'name' => 'Gramos',
-                'nemonico' => 'g',
+                'short_name' => 'g',
                 'enabled' => true,
             ],
             [
                 'name' => 'Mililitros',
-                'nemonico' => 'ml',
+                'short_name' => 'ml',
                 'enabled' => true,
             ],
             [
                 'name' => 'Litros',
-                'nemonico' => 'l',
+                'short_name' => 'l',
                 'enabled' => true,
             ],
             [
                 'name' => 'Centímetros Cúbicos',
-                'nemonico' => 'cm',
+                'short_name' => 'cm',
                 'enabled' => true,
             ],
             [
                 'name' => 'Onzas',
-                'nemonico' => 'oz',
+                'short_name' => 'oz',
                 'enabled' => true,
             ],
         ]);

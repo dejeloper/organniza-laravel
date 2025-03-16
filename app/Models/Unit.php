@@ -12,7 +12,7 @@ class Unit extends Model
 
     protected $fillable = [
         'name',
-        'nemonico',
+        'short_name',
         'enabled',
     ];
 
@@ -27,12 +27,12 @@ class Unit extends Model
 
     public function checklistPantryUnits()
     {
-        return $this->hasMany(ChecklistDetail::class, 'pantry_unit_product');
+        return $this->hasMany(ChecklistDetail::class, 'pantry_unit_id');
     }
 
     public function checklistRequiredUnits()
     {
-        return $this->hasMany(ChecklistDetail::class, 'required_unit_product');
+        return $this->hasMany(ChecklistDetail::class, 'required_unit_id');
     }
 
     public function purchasesHistoryDetails()

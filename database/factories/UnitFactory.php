@@ -13,7 +13,7 @@ class UnitFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
-            'nemonico' => strtoupper($this->faker->unique()->lexify('??')),
+            'short_name' => strtoupper($this->faker->unique()->lexify('??')),
             'enabled' => $this->faker->boolean(),
         ];
     }

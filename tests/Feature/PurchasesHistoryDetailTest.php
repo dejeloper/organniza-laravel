@@ -23,7 +23,7 @@ class PurchasesHistoryDetailTest extends TestCase
             'purchases_history_header_id' => $header->id,
             'product_id' => $product->id,
             'amount_product' => 10,
-            'unit_product' => $unit->id,
+            'unit_product_id' => $unit->id,
             'sub_total_product' => 500.75,
             'enabled' => true,
         ]);
@@ -38,7 +38,7 @@ class PurchasesHistoryDetailTest extends TestCase
             'purchases_history_header_id' => null,
             'product_id' => null,
             'amount_product' => -5,
-            'unit_product' => null,
+            'unit_product_id' => null,
             'sub_total_product' => -100,
             'enabled' => 'not_a_boolean',
         ]);

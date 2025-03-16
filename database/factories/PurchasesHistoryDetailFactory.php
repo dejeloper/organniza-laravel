@@ -18,7 +18,7 @@ class PurchasesHistoryDetailFactory extends Factory
             'purchases_history_header_id' => PurchasesHistoryHeader::factory(),
             'product_id' => Product::factory(),
             'amount_product' => $this->faker->numberBetween(1, 50),
-            'unit_product' => Unit::factory(),
+            'unit_product_id' => Unit::factory(),
             'sub_total_product' => $this->faker->randomFloat(2, 10, 1000),
             'enabled' => $this->faker->boolean(),
         ];

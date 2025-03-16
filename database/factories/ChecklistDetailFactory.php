@@ -18,9 +18,9 @@ class ChecklistDetailFactory extends Factory
             'checklist_header_id' => ChecklistHeader::factory(),
             'product_id' => Product::factory(),
             'pantry_amount_product' => $this->faker->randomFloat(2, 1, 100),
-            'pantry_unit_product' => Unit::factory(),
+            'pantry_unit_id' => Unit::factory(),
             'required_amount_product' => $this->faker->randomFloat(2, 1, 50),
-            'required_unit_product' => Unit::factory(),
+            'required_unit_id' => Unit::factory(),
             'enabled' => $this->faker->boolean,
         ];
     }

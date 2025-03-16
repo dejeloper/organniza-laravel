@@ -14,7 +14,7 @@ class UnitTest extends TestCase
     {
         $response = $this->postJson('/api/units', [
             'name' => 'Unidad 1',
-            'nemonico' => 'UN1',
+            'short_name' => 'UN1',
             'enabled' => true,
         ]);
 
@@ -26,7 +26,7 @@ class UnitTest extends TestCase
     {
         $response = $this->postJson('/api/units', [
             'name' => '',
-            'nemonico' => '',
+            'short_name' => '',
         ]);
 
         $response->assertStatus(422);
@@ -48,7 +48,7 @@ class UnitTest extends TestCase
 
         $response = $this->putJson("/api/units/{$unit->id}", [
             'name' => 'Unidad Modificada',
-            'nemonico' => $unit->nemonico,
+            'short_name' => $unit->short_name,
             'enabled' => $unit->enabled,
         ]);
 

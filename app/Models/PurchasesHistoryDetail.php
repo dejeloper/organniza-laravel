@@ -14,7 +14,7 @@ class PurchasesHistoryDetail extends Model
         'purchases_history_header_id',
         'product_id',
         'amount_product',
-        'unit_product',
+        'unit_product_id',
         'sub_total_product',
         'enabled',
     ];

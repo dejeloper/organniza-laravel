@@ -14,9 +14,9 @@ class ChecklistDetail extends Model
         'checklist_header_id',
         'product_id',
         'pantry_amount_product',
-        'pantry_unit_product',
+        'pantry_unit_id',
         'required_amount_product',
-        'required_unit_product',
+        'required_unit_id',
         'enabled',
     ];
 
@@ -36,12 +36,12 @@ class ChecklistDetail extends Model
 
     public function pantryUnit()
     {
-        return $this->belongsTo(Unit::class, 'pantry_unit_product');
+        return $this->belongsTo(Unit::class, 'pantry_unit_id');
     }
 
     public function requiredUnit()
     {
-        return $this->belongsTo(Unit::class, 'required_unit_product');
+        return $this->belongsTo(Unit::class, 'required_unit_id');
     }
 
     public function modifications()
