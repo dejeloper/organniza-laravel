@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
+    AuthController,
     CategoryController,
     ChecklistDetailController,
     ChecklistHeaderController,
@@ -14,6 +15,9 @@ use App\Http\Controllers\{
     UserController
 };
 
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+
 function softDeleteRoutes($prefix, $controller)
 {
     Route::get("$prefix/withTrashed", [$controller, 'indexWithTrashed']);
@@ -23,7 +27,7 @@ function softDeleteRoutes($prefix, $controller)
     Route::delete("$prefix/{id}/forceDelete", [$controller, 'forceDelete']);
 }
 
-Route::prefix('api')->group(function () {
+Route::middleware('auth:sanctum')->group(function () {
     $resources = [
         'products' => ProductController::class,
         'categories' => CategoryController::class,

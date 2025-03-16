@@ -12,11 +12,12 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
+            RolePermissionSeeder::class,
+            UserSeeder::class,
             CategorySeeder::class,
             PlaceSeeder::class,
             ProductStatusSeeder::class,
             UnitSeeder::class,
-            UserSeeder::class,
             ProductSeeder::class,
             ChecklistHeaderSeeder::class,
             ChecklistDetailSeeder::class,
