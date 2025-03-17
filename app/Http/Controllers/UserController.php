@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\UserResource;
+use App\Models\Permission;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -75,15 +77,7 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         $user = User::withTrashed()->findOrFail($id);
-
-        if ($user->trashed()) {
-            // Si ya está eliminado (soft delete), lo eliminamos permanentemente
-            $user->forceDelete();
-        } else {
-            // Si no está eliminado, solo aplicamos soft delete
-            $user->delete();
-        }
-
+        $user->delete();
         return response()->json(['message' => 'Usuario eliminado correctamente']);
     }
 

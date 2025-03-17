@@ -6,17 +6,48 @@ use App\Http\Controllers\{
     CategoryController,
     ChecklistDetailController,
     ChecklistHeaderController,
+    PermissionController,
     PlaceController,
     ProductController,
     ProductStatusController,
     PurchasesHistoryDetailController,
     PurchasesHistoryHeaderController,
+    RoleController,
     UnitController,
-    UserController
+    UserController,
+    PermissionAssignmentController,
+    RoleAssignmentController
 };
 
+// Autenticación
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+
+// Rutas de roles
+Route::middleware(['auth:sanctum'])->prefix('roles')->group(function () {
+    Route::apiResource('/', RoleController::class);
+    Route::post('{roleId}/permissions', [PermissionAssignmentController::class, 'assignPermissionToRole']);
+    Route::post('{roleId}/permissions/remove', [PermissionAssignmentController::class, 'removePermissionFromRole']);
+    Route::get('{roleId}/permissions', [PermissionAssignmentController::class, 'getPermissionsOfRole']);
+});
+
+// Rutas de permisos
+Route::middleware(['auth:sanctum'])->prefix('permissions')->group(function () {
+    Route::apiResource('/', PermissionController::class);
+});
+
+// Rutas de usuarios y asignación de roles y permisos
+Route::middleware(['auth:sanctum'])->prefix('users/{userId}')->group(function () {
+    // Permisos
+    Route::get('/permissions', [PermissionAssignmentController::class, 'getPermissionsOfUser']);
+    Route::post('/permissions', [PermissionAssignmentController::class, 'assignPermissionToUser']);
+    Route::post('/permissions/remove', [PermissionAssignmentController::class, 'removePermissionFromUser']);
+
+    // Roles
+    Route::get('/roles', [RoleAssignmentController::class, 'getRolesOfUser']);
+    Route::post('/roles', [RoleAssignmentController::class, 'assignRolesToUser']);
+    Route::post('/roles/remove', [RoleAssignmentController::class, 'removeRolesFromUser']);
+});
 
 function softDeleteRoutes($prefix, $controller)
 {
