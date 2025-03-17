@@ -23,7 +23,7 @@ class RolePermissionSeeder extends Seeder
         ];
 
         foreach ($roles as $role) {
-            Role::firstOrCreate(['name' => $role]);
+            Role::firstOrCreate(['name' => $role, 'guard_name' => 'api']);
         }
 
         // Crear los permisos
@@ -44,7 +44,7 @@ class RolePermissionSeeder extends Seeder
         $permisos = array_merge($permisosUsuarios, $permisosLugares);
 
         foreach ($permisos as $permiso) {
-            Permission::firstOrCreate(['name' => $permiso]);
+            Permission::firstOrCreate(['name' => $permiso, 'guard_name' => 'api']);
         }
 
         // Asignar permisos a los roles
