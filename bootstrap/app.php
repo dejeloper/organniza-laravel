@@ -1,5 +1,6 @@
 <?php
 
+use App\Exceptions\CustomExceptionHandler;
 use App\Http\Middleware\ForceJsonResponse;
 use Illuminate\Foundation\Application;
 use Illuminate\Auth\AuthenticationException;
@@ -34,5 +35,9 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->render(function (AuthenticationException $exception, $request) {
             return response()->json(['message' => 'Unauthenticated.'], 401);
+        });
+
+        $exceptions->render(function (\Throwable $exception, $request) {
+            return CustomExceptionHandler::handle($exception);
         });
     })->create();
