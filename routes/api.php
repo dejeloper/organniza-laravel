@@ -51,11 +51,13 @@ Route::middleware(['auth:sanctum'])->prefix('users/{userId}')->group(function ()
 
 function softDeleteRoutes($prefix, $controller)
 {
-    Route::get("$prefix/withTrashed", [$controller, 'indexWithTrashed']);
-    Route::get("$prefix/onlyTrashed", [$controller, 'indexOnlyTrashed']);
-    Route::get("$prefix/{id}/trashed", [$controller, 'showTrashed']);
-    Route::patch("$prefix/{id}/restore", [$controller, 'restore']);
-    Route::delete("$prefix/{id}/forceDelete", [$controller, 'forceDelete']);
+    Route::prefix($prefix)->group(function () use ($controller) {
+        Route::get('/withTrashed', [$controller, 'indexWithTrashed']);
+        Route::get('/onlyTrashed', [$controller, 'indexOnlyTrashed']);
+        Route::get('/{id}/trashed', [$controller, 'showTrashed']);
+        Route::patch('/{id}/restore', [$controller, 'restore']);
+        Route::delete('/{id}/forceDelete', [$controller, 'forceDelete']);
+    });
 }
 
 Route::middleware('auth:sanctum')->group(function () {
