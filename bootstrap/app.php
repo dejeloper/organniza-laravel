@@ -5,17 +5,11 @@ use App\Http\Middleware\ForceJsonResponse;
 use Illuminate\Foundation\Application;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Configuration\Exceptions;
-
 use Illuminate\Foundation\Configuration\Middleware;
-
 use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
+use Spatie\Permission\Middleware\{RoleMiddleware, PermissionMiddleware, RoleOrPermissionMiddleware};
 
-use Spatie\Permission\Middleware\RoleMiddleware;
-use Spatie\Permission\Middleware\PermissionMiddleware;
-use Spatie\Permission\Middleware\RoleOrPermissionMiddleware;
-
-
-return Application::configure(basePath: dirname(__DIR__))
+$app = Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__ . '/../routes/web.php',
         api: __DIR__ . '/../routes/api.php',
@@ -23,9 +17,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->append(ForceJsonResponse::class);
+        // Asegura respuestas JSON antes de otros middlewares
+        $middleware->prepend(ForceJsonResponse::class);
 
+        // Middleware para solicitudes frontend con Sanctum
         $middleware->append(EnsureFrontendRequestsAreStateful::class);
+
+        // Alias para middlewares de Spatie Permission
         $middleware->alias([
             'role' => RoleMiddleware::class,
             'permission' => PermissionMiddleware::class,
@@ -33,11 +31,17 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        $exceptions->render(function (AuthenticationException $exception, $request) {
-            return response()->json(['message' => 'Unauthenticated.'], 401);
-        });
+        // Respuesta personalizada para autenticación fallida
+        $exceptions->render(
+            fn(AuthenticationException $exception, $request) =>
+            response()->json(['message' => 'Unauthenticated.'], 401)
+        );
 
-        $exceptions->render(function (\Throwable $exception, $request) {
-            return CustomExceptionHandler::handle($exception);
-        });
-    })->create();
+        // Manejo personalizado de excepciones (opcional)
+        $exceptions->render(
+            fn(\Throwable $exception, $request) =>
+            CustomExceptionHandler::handle($exception)
+        );
+    });
+
+return $app->create();
